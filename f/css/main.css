@@ -3102,6 +3102,10 @@ a:hover .icon-inteo {
   margin: 0;
   border: none;
 }
+.main-slider li {
+  font-size: 16px;
+  line-height: 30px;
+}
 .main-slider li:before {
   display: none;
 }
