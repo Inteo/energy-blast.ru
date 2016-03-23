@@ -1420,7 +1420,7 @@ button.close {
     margin-left: 0;
   }
 }
-@media (min-width: 992px) {
+/* @media (min-width: 992px) { */
   .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
     float: left;
   }
@@ -1577,7 +1577,7 @@ button.close {
   .col-md-offset-0 {
     margin-left: 0;
   }
-}
+/* } */
 @media (min-width: 1200px) {
   .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
     float: left;
@@ -1786,6 +1786,239 @@ input:-moz-placeholder {
   left: -9999px;
   top: -9999px
 }
+.popup {
+  &__holder {
+    max-width: 1200px;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    height: 700px;
+    right: 0;
+    margin: auto;
+    overflow: hidden;
+    width: 100%;
+    background: #e7ebed;
+  }
+  &_dark &__holder {
+    background: #35393a;
+  }
+  &_dark p {
+    color: #bdbdbd;
+  }
+  &__half {
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    height: 700px;
+    padding: 100px;
+    width: 50%;
+    &:nth-of-type(1) {
+      padding-right: 0;
+    }
+  }
+  & .mCSB_container {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    padding-right: 100px;
+    margin-right: -10px;
+  }
+  & .mCSB_scrollTools {
+    width: 5px;
+    right: 2px;
+    top: 2px;
+    bottom: 2px;
+  }
+  & .mCSB_draggerRail {
+    width: 5px;
+    background: #dbe1e4;
+  }
+  &_dark .mCSB_draggerRail {
+    background: #2e3232;
+  }
+  & .mCSB_dragger {
+    background: #2196f3;
+    height: 150px !important;
+    border-radius: 3px;
+  }
+  & .mCustomScrollBox {
+    position: relative;
+    &:before,
+    &:after {
+      position: absolute;
+      content: '';
+      bottom: 0;
+      height: 200px;
+      left: 0;
+      right: 20px;
+      -webkit-box-shadow: inset 0px -150px 30px -30px rgba(231, 235, 237, 1); 
+      -moz-box-shadow:    inset 0px -150px 30px -30px rgba(231, 235, 237, 1);
+      box-shadow:         inset 0px -100px 30px -30px rgba(231, 235, 237, 1);
+      z-index: 10;
+    }
+    &:after {
+      bottom: auto;
+      top: 0;
+      -webkit-box-shadow: inset 0px 130px 30px -30px rgba(231, 235, 237, 1); 
+      -moz-box-shadow:    inset 0px 130px 30px -30px rgba(231, 235, 237, 1);
+      box-shadow:         inset 0px 130px 30px -30px rgba(231, 235, 237, 1);
+    }
+  }
+  &_dark .mCustomScrollBox {
+    &:before {
+      -webkit-box-shadow: inset 0px -150px 30px -30px rgba(53, 57, 58, 1); 
+      -moz-box-shadow:    inset 0px -150px 30px -30px rgba(53, 57, 58, 1);
+      box-shadow:         inset 0px -100px 30px -30px rgba(53, 57, 58, 1);
+    }
+    &:after {
+      -webkit-box-shadow: inset 0px 130px 30px -30px rgba(53, 57, 58, 1); 
+      -moz-box-shadow:    inset 0px 130px 30px -30px rgba(53, 57, 58, 1);
+      box-shadow:         inset 0px 130px 30px -30px rgba(53, 57, 58, 1);
+    }
+  }
+}
+.line {
+  position: relative;
+  margin-bottom: 10px;
+  &:before {
+    content: '';
+    border-bottom: 1px dotted #9e9e9e;
+    width: 100%;
+    height: 1px;
+    left: 0;
+    top: 18px;
+    position: absolute;
+  }
+
+  & span {
+    background: #e7ebed;
+    position: relative;
+    color: #212121;
+    z-index: 2;
+    padding-right: 10px;
+    display: inline-block !important;
+    &:nth-of-type(2) {
+      padding-right: 0;
+      padding-left: 10px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 150px;
+    }
+  }
+  &_italic {
+    &:before {
+      border-color: #cfd8dc;
+      top: 13px;
+    }
+    & span {
+      font-style: italic;
+      color: #757575;
+      font-size: 14px;
+    }
+  }
+}
+.scroll {
+  position: absolute;
+  height: 100%;
+  top: 0;
+}
+.completing-popup {
+  &__img {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    & img {
+      position: absolute;
+      min-width: 100%;
+      height: 100%;
+      
+    }
+
+  }
+}
+.video-popup {
+  & img {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+  }
+}
+.economy-process-popup {
+  &__table {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+  }
+  &__row {
+    display: table-row;
+    width: 100%; 
+  }
+  &__cell {
+    display: table-cell;
+    background: #fff;
+    border-left: 2px solid #dbe1e4;
+    border-right: 2px solid #1e88e5;
+    width: 30%;
+    padding: 0 15px 0 25px;
+    vertical-align: top;
+    font-size: 14px;
+    line-height: 25px;
+    padding-bottom: 20px;
+    & p {
+      margin-bottom: 0;
+    }
+    & span {
+      color: #757575;
+      display: block;
+      font-style: italic;
+    }
+    &:nth-of-type(1) {
+      background: transparent;
+      border: none !important;
+      width: auto;
+      padding-right: 10px;
+      padding-left: 0;
+    }
+    &:last-of-type {
+      border-right: 2px solid #1e88e5;
+    }
+  }
+  &__row:last-of-type &__cell {
+    border-bottom: 2px solid #dbe1e4;
+  }
+  &__row:last-of-type &__cell:last-of-type {
+    border-bottom: 2px solid #1e88e5;
+  }
+  &__row_head &__cell {
+    background: #dbe1e4;
+    border-top: 2px solid #dbe1e4;
+    font-weight: bold;
+    padding-top: 15px;
+    padding-bottom: 25px;
+    &:nth-of-type(1) {
+      background: transparent;
+    }
+    &:last-of-type {
+      border-top: 2px solid #1e88e5;
+      color: #1e88e5;
+    }
+  }
+  &__row:nth-of-type(2) &__cell {
+    padding-top: 30px;
+  }
+  &__row:last-of-type &__cell {
+    padding-bottom: 30px;
+  }
+  &__detail {
+    margin-bottom: 40px;
+  }
+}
 textarea {
   min-height: 150px
 }
@@ -1794,15 +2027,23 @@ textarea {
   border-bottom: 1px solid #dadada;
   padding: 10px 0
 }
+.fancybox-overlay {
+  background: #cfd8dc;
+  opacity: 1;
+  min-width: 940px;
+}
+.fancybox-wrap {
+  
+}
 .fancybox-skin {
   border-radius: none;
   background: 0 0
 }
 .fancybox-close {
-	width: 25px;
-	height: 25px;
-	right: 30px;
-	top: 30px;
+	width: 40px;
+	height: 40px;
+	right: 10px;
+	top: 10px;
 	background: transparent;
 	&:before,
 	&:after {
@@ -1811,11 +2052,13 @@ textarea {
 		top: 50%;
 		position: absolute;
 		width: 100%;
-		height: 3px;
-		background: #161d21;
+		height: 8px;
+    border-radius: 8px;
+		background: #e7ebed;
 		-ms-transform: rotate(45deg);
 	  -webkit-transform: rotate(45deg);
 	  transform: rotate(45deg);
+    .transition(background-color, .3s, ease);
 	}
 	&:after {
 		-ms-transform: rotate(-45deg);
@@ -1823,11 +2066,23 @@ textarea {
 	  transform: rotate(-45deg);
 	}
 	&:hover {
-		&:before,
-		&:after {
-			background: #e53935;
-		}
-	}
+    &:before,
+    &:after {
+      background: #2196f3;
+    }
+  }
+}
+.tpl-dark .fancybox-close {
+  &:before,
+  &:after {
+    background: #35393a;
+  }
+  &:hover {
+    &:before,
+    &:after {
+      background: #2196f3;
+    }
+  }
 }
 .tooltip {
     display: block;
@@ -2459,6 +2714,9 @@ a:hover .icon-inteo {
   &:nth-of-type(4) {
     z-index: 2;
   }
+  &:nth-of-type(5) {
+    z-index: 1;
+  }
   &_dark {
     background: #35393a;
   }
@@ -2970,7 +3228,10 @@ a:hover .icon-inteo {
     }
   }
 }
-.main-slider {
+.fancybox-nav {
+  display: none;
+}
+.slider {
   margin: 0;
   border: none;
   & li {
@@ -2980,10 +3241,10 @@ a:hover .icon-inteo {
       display: none;
     }
   }
-  & .flex-control-nav {
-    display: none;
+  &_relative {
+    position: relative;
   }
-  & .flexslider-navigation {
+  .flexslider-navigation {
     *height: 0;
     & a {
       text-decoration: none;
@@ -3002,6 +3263,7 @@ a:hover .icon-inteo {
       -ms-transition: all 0.3s ease-in-out;
       -o-transition: all 0.3s ease-in-out;
       transition: all 0.3s ease-in-out;
+
       &:before {
         font-family: "flexslider-icon";
         font-size: 32px;
@@ -3014,21 +3276,29 @@ a:hover .icon-inteo {
         -ms-transition: all 0.3s ease-in-out;
         -o-transition: all 0.3s ease-in-out;
         transition: all 0.3s ease-in-out;
+        text-shadow: none;
       }
       &.flex-prev {
-        left: -50px;
+        left: 10px;
         &:before {
           content: '\f001';
         }
       }
       &.flex-next {
-        right: -50px;
+        right: 10px;
         text-align: right;
       }
     }
+    &_dark {
+      & a {
+        &:before {
+          color: #35393a;
+        }
+      }
+    }
   }
+
   &:hover .flexslider-navigation a.flex-prev {
-    left: 10px;
     &:hover {
       &:before {
         color: #1e88e5;
@@ -3036,7 +3306,6 @@ a:hover .icon-inteo {
     }
   }
   &:hover .flexslider-navigation a.flex-next {
-    right: 10px;
     &:hover {
       &:before {
         color: #1e88e5;
@@ -3049,6 +3318,9 @@ a:hover .icon-inteo {
     cursor: default;
     z-index: -1;
   }
+}
+.main-slider {
+  
 }
 .energy {
   &__btn {
@@ -3150,15 +3422,46 @@ a:hover .icon-inteo {
     bottom: 0;
     right: 0;
     & li {
-      cursor: pointer;
-      background: #2196f3;
-      border-radius: 50%;
+      &:before {
+        display: none;
+      }
+      & a {
+        background: #2196f3;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        display: block;
+        position: relative;
+        &:before {
+          width: 14px;
+          height: 2px;
+          background: #fff;
+          content: '';
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          margin: auto;
+          border-radius: 0;
+          position: absolute;
+        }
+        &:after {
+          width: 2px;
+          height: 14px;
+          position: absolute;
+          background: #fff;
+          content: '';
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          margin: auto;
+        }
+      }
       position: absolute;
       top: 10px;
       display: block;
       right: 380px;
-      width: 30px;
-      height: 30px;
       @media @medium {
         right: 325px;
       }
@@ -3171,7 +3474,7 @@ a:hover .icon-inteo {
         @media @medium {
           top: 110px;
           right: 435px;
-        }
+        } 
         @media @small {
           top: 80px;
           right: 360px;
@@ -3272,31 +3575,6 @@ a:hover .icon-inteo {
           top: 350px;
           right: 340px;
         }
-      }
-      &:before {
-        width: 14px;
-        height: 2px;
-        background: #fff;
-        content: '';
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        margin: auto;
-        border-radius: 0;
-        position: absolute;
-      }
-      &:after {
-        width: 2px;
-        height: 14px;
-        position: absolute;
-        background: #fff;
-        content: '';
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        margin: auto;
       }
     }
   }

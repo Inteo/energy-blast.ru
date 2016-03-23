@@ -17,9 +17,11 @@
     <script src="f/js/jquery.transit.min.js"></script>
     <script src="f/js/bootstrap-tooltip.js"></script>
     <script src="f/js/jquery.flexslider-min.js"></script>
+    <script src="f/js/jquery.mCustomScrollbar.js"></script>
     <script src="f/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
     <link rel="stylesheet" href="f/fancybox/jquery.fancybox.css?v=2.1.5" media="screen">
     <link rel="stylesheet" href="f/css/flexslider.css">
+    <link rel="stylesheet" href="f/css/jquery.mCustomScrollbar.css">
     <link rel="stylesheet" href="f/css/main.css">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,700,700italic&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=PT+Sans&subset=latin,cyrillic-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
@@ -29,10 +31,37 @@
     <script src="f/js/common.js"></script>
     <script>
       $(document).ready(function() {
-       	$('.flexslider').flexslider({
+       	$('#main-slider').flexslider({
 			    animation: "slide",
-			    customDirectionNav: $(".flexslider-navigation a")
+			    controlNav: false,
+			    customDirectionNav: $(".main-slider .flexslider-navigation a")
 			  });
+			  $(".modal-completing").fancybox({
+			    type: 'inline',
+			    fixed: true,
+			 		width       : '100%',
+					height      : '100%',
+					minWidth: "100%",
+					minHeight: "100%",
+					afterLoad: function(cur){
+						if(this.content.hasClass("popup_dark")) {
+							$.fancybox.helpers.overlay.overlay.css("background", "#282b2b");
+							$.fancybox.helpers.overlay.overlay.addClass("tpl-dark");
+						}
+						setTimeout(function(){
+							$('#completing-popup .popup__holder').flexslider({
+						    animation: "slide",
+						    controlNav: false,
+						    customDirectionNav: $(".completing-popup .flexslider-navigation a")
+						  });
+						}, 100);
+						
+					}
+				});
+			  
+			  $(".scroll").mCustomScrollbar({
+		      scrollInertia: 150
+		    });
       });
     </script>
   </head>
@@ -170,13 +199,13 @@
   						<div class="screen__content">
 		  					<h2 class="screen__title">Принцип работы</h2>
 		  					<p class="screen__text">Основное отличие гидропескоструйной обработки ― наличие воды в составе чистящего вещества. Вода предотвращает образование пыли, что качественно улучшает условия труда и повышает безопасность рабочих. Для защиты от возможной коррозии в воду добавляется ингибитор.</p>
-		  					<a href="#" class="btn"><i class="icon-play"></i>Посмотреть видео</a>
+		  					<a href="#video-popup" class="btn modal-inline"><i class="icon-play"></i>Посмотреть видео</a>
 		  				</div>
   					</div>
   				</div>
   			</div>
   		</section>
-  		<section class="main-slider flexslider">
+  		<section id="main-slider" class="main-slider slider slider_relative screen">
   			<ul class="slides">
   				<li class="screen screen_safe">
 		  			<div class="screen__holder">
@@ -251,16 +280,16 @@
   						<div class="screen__img">
   							<img src="f/i/screen/13.png" alt="">
   							<ul class="energy__tooltips">
-  								<li rel="tooltip" data-placement="top" data-toggle="tooltip" title="Шкаф управления"></li>
-  								<li rel="tooltip" data-placement="top" data-toggle="tooltip" title="Шкаф управления"></li>
-  								<li rel="tooltip" data-placement="top" data-toggle="tooltip" title="Шкаф управления"></li>
-  								<li rel="tooltip" data-placement="top" data-toggle="tooltip" title="Шкаф управления"></li>
-  								<li rel="tooltip" data-placement="top" data-toggle="tooltip" title="Шкаф управления"></li>
-  								<li rel="tooltip" data-placement="top" data-toggle="tooltip" title="Шкаф управления"></li>
-  								<li rel="tooltip" data-placement="top" data-toggle="tooltip" title="Шкаф управления"></li>
-  								<li rel="tooltip" data-placement="top" data-toggle="tooltip" title="Шкаф управления"></li>
-  								<li rel="tooltip" data-placement="top" data-toggle="tooltip" title="Шкаф управления"></li>
-  								<li rel="tooltip" data-placement="top" data-toggle="tooltip" title="Шкаф управления"></li>
+  								<li><a rel="tooltip" data-placement="top" data-toggle="tooltip" title="Шкаф управления" href="#completing-popup" class="modal-completing"></a></li>
+  								<li><a rel="tooltip" data-placement="top" data-toggle="tooltip" title="Шкаф управления" href="#completing-popup" class="modal-completing"></a></li>
+  								<li><a rel="tooltip" data-placement="top" data-toggle="tooltip" title="Шкаф управления" href="#completing-popup" class="modal-completing"></a></li>
+  								<li><a rel="tooltip" data-placement="top" data-toggle="tooltip" title="Шкаф управления" href="#completing-popup" class="modal-completing"></a></li>
+  								<li><a rel="tooltip" data-placement="top" data-toggle="tooltip" title="Шкаф управления" href="#completing-popup" class="modal-completing"></a></li>
+  								<li><a rel="tooltip" data-placement="top" data-toggle="tooltip" title="Шкаф управления" href="#completing-popup" class="modal-completing"></a></li>
+  								<li><a rel="tooltip" data-placement="top" data-toggle="tooltip" title="Шкаф управления" href="#completing-popup" class="modal-completing"></a></li>
+  								<li><a rel="tooltip" data-placement="top" data-toggle="tooltip" title="Шкаф управления" href="#completing-popup" class="modal-completing"></a></li>
+  								<li><a rel="tooltip" data-placement="top" data-toggle="tooltip" title="Шкаф управления" href="#completing-popup" class="modal-completing"></a></li>
+  								<li><a rel="tooltip" data-placement="top" data-toggle="tooltip" title="Шкаф управления" href="#completing-popup" class="modal-completing"></a></li>
   							</ul>
   							<div class="energy__captions">
   								<span>Компрессор</span>
@@ -280,7 +309,7 @@
 		  					</p>
 		  					<p class="energy__price">420 000<span class="rub">&#8399;</span></p>
 		  					<a href="#" class="btn btn_orange energy__btn"><i class="icon-order"></i>Заказать</a>
-		  					<a href="#" class="energy__detail">Подробнее</a>
+		  					<a href="#economy-process" class="energy__detail modal-inline">Подробнее</a>
 		  				</div>
   					</div>
   				</div>
@@ -295,7 +324,138 @@
 		</p>
   </footer>
   <div class="popups">
-  	
+  	<div class="popup popup_dark completing-popup slider" id="completing-popup">
+  		<div class="popup__holder">
+			<ul class="slides">
+				<li>
+					<div class="popup__half">
+						<div class="completing-popup__img">
+							<img src="f/i/completing/1.jpg" alt="">
+						</div>
+					</div><div class="popup__half">
+						<h2>Колба</h2>
+
+					</div>
+				</li>
+				<li>
+					<div class="popup__half">
+						<div class="completing-popup__img">
+							<img src="f/i/completing/1.jpg" alt="">
+						</div>
+					</div><div class="popup__half">
+						<div class="scroll">
+							<h2>Клапан РТ</h2>
+							<p>Предназначен для подачи абразивного материала в абразивный тракт, оперативного перекрытия подачи абразива и регулировки объема подачи абразива в тракт.</p>
+							<p>Отличается от традиционного шиберного затвора скоростью реакции на управляющее воздействие вкл/выкл, определяемой скоростью срабатывания электрической линии. Такой способ управления подачей абразива считается наиболее безопасным.</p><p>Рабочим элементом, служащим для перекрытия подачи абразива, является плунжерная пара из карбида бора – втулка и палец.</p>
+						</div>
+					</div>
+				</li>
+			</ul>
+			</div>
+			<div class="flexslider-navigation flexslider-navigation_dark">
+				<a href="#" class="flex-prev">&nbsp;</a>
+				<a href="#" class="flex-next">&nbsp;</a>
+			</div>
+  	</div>
+  	<div class="popup popup_dark video-popup" id="video-popup">
+			<img src="f/i/video.jpg" alt="">
+  	</div>
+  	<div class="popup economy-process-popup" id="economy-process">
+  		<div class="popup__holder">
+			<div class="popup__half">
+				<div class="economy-process-popup__table">
+					<div class="economy-process-popup__row economy-process-popup__row_head">
+						<div class="economy-process-popup__cell"></div>
+						<div class="economy-process-popup__cell">
+							Обычный пескоструйный аппарат
+						</div>
+						<div class="economy-process-popup__cell">
+							ПГА «Энергия»
+						</div>
+					</div>
+					<div class="economy-process-popup__row">
+						<div class="economy-process-popup__cell">
+							<p class="line line_italic"><span>Объем загрузки</span></p>
+						</div>
+						<div class="economy-process-popup__cell">
+							200 л
+						</div>
+						<div class="economy-process-popup__cell">
+							300 л
+						</div>
+					</div>
+					<div class="economy-process-popup__row">
+						<div class="economy-process-popup__cell">
+							<p class="line line_italic"><span>Время переналадки</span></p>
+						</div>
+						<div class="economy-process-popup__cell">
+							15 мин
+						</div>
+						<div class="economy-process-popup__cell">
+							20 мин
+						</div>
+					</div>
+					<div class="economy-process-popup__row">
+						<div class="economy-process-popup__cell">
+							<p class="line line_italic"><span>Производственный <br> цикл</span></p>
+						</div>
+						<div class="economy-process-popup__cell">
+							30 мин <span>5 циклов за 4 ч.</span>
+						</div>
+						<div class="economy-process-popup__cell">
+							20 мин<span>4 цикла за 4 ч.</span>
+						</div>
+					</div>
+					<div class="economy-process-popup__row">
+						<div class="economy-process-popup__cell">
+							<p class="line line_italic"><span>Рабочее давление</span></p>
+						</div>
+						<div class="economy-process-popup__cell">
+							8 атм.
+						</div>
+						<div class="economy-process-popup__cell">
+							10 атм.
+						</div>
+					</div>
+					<div class="economy-process-popup__row">
+						<div class="economy-process-popup__cell">
+							<p class="line line_italic"><span>Скорость очистки</span></p>
+						</div>
+						<div class="economy-process-popup__cell">
+							20 м<sup>2</sup>/час
+						</div>
+						<div class="economy-process-popup__cell">
+							20 м<sup>2</sup>/час
+						</div>
+					</div>
+					<div class="economy-process-popup__row">
+						<div class="economy-process-popup__cell">
+							<p class="line line_italic"><span>Расход абразива</span></p>
+						</div>
+						<div class="economy-process-popup__cell">
+							36 кг/м<sup>2</sup>
+						</div>
+						<div class="economy-process-popup__cell">
+							14 кг/м<sup>2</sup>
+						</div>
+					</div>
+				</div>
+			</div><div class="popup__half">
+				<div class="scroll">
+					<p class="popup__title h2">Сравнение производительности технологического процесса</p>
+					<div class="economy-process-popup__detail">
+						<p class="line"><span>Коррозионное поражение<br>  поверхности</span><span>В, С (по ISO 8501-1)</span></p>
+						<p class="line"><span>Шероховатость очищенной <br> поверхности</span><span>S<sub>a</sub> = 2,5 (по ISO 8503-2)</span></p>
+						<p class="line"><span>Длина абразивного тракта</span><span>20 м</span></p>
+					</div>
+					<p>За счет увеличенного объема загрузки происходит увеличение производительности ПГА-300, что продлевает срок службы комплектующих. А увеличение рабочего давления аппарата сокращается расход абразивного материала.</p>
+				</div>
+			</div>
+			</div>
+  	</div>
   </div>
 </body>
 </html>
+
+
+

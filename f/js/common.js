@@ -14,4 +14,18 @@ $(document).ready(function() {
 	$(".popup-btn-content__close").click(function(){
 		$(this).closest(".popup-btn-content").removeClass("popup-btn-content_active");
 	})
+	$(".modal-inline").fancybox({
+    type: 'inline',
+    fixed: true,
+ 		width       : '100%',
+		height      : '100%',
+		minWidth: "100%",
+		minHeight: "100%",
+		afterLoad: function(cur){
+			if(this.content.hasClass("popup_dark")) {
+				$.fancybox.helpers.overlay.overlay.css("background", "#282b2b");
+				$.fancybox.helpers.overlay.overlay.addClass("tpl-dark");
+			}
+		}
+	});	
 });
