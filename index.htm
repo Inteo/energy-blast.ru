@@ -52,6 +52,7 @@
 							$('#completing-popup .popup__holder').flexslider({
 						    animation: "slide",
 						    controlNav: false,
+						    slideshow: false,
 						    customDirectionNav: $(".completing-popup .flexslider-navigation a")
 						  });
 						}, 100);
@@ -126,7 +127,7 @@
   					</div>
   					<div class="screen__cell">
   						<div class="screen__content">
-		  					<h2 class="screen__title">Пневматический гидропескоструйный аппарат «Энергия»</h2>
+		  					<h2 class="screen__title h1">Пневматический гидропескоструйный аппарат «Энергия»</h2>
 		  					<p class="screen__text">для очистки без пыли и коррозии металлических конструкций до SA 2,5 <a href="#" rel="tooltip" data-placement="top" data-toggle="tooltip" title="Степень шероховатости"><i class="icon-tooltip"></i></a>с временем экспозиции поверхности свыше 48 часов</p>
 		  					<a href="#" class="anim-link btn">Подробнее<i></i><i></i><i></i></a>
 		  				</div>
@@ -171,7 +172,7 @@
   					</div>
   					<div class="screen__cell">
   						<div class="screen__content">
-		  					<h2 class="screen__title">Сферы применения</h2>
+		  					<h2 class="screen__title h1">Сферы применения</h2>
 		  					<p class="screen__text">Наши аппараты успешно применяются на судоремонтных и нефтегазовых предприятиях, а также в компаниях, у которых антикоррозионная защита металлических поверхностей является профильным видом бизнеса.</p>
 		  					<a href="#" class="anim-link btn">Посмотреть все<i></i><i></i><i></i></a>
 		  				</div>
@@ -197,7 +198,7 @@
   					</div>
   					<div class="screen__cell">
   						<div class="screen__content">
-		  					<h2 class="screen__title">Принцип работы</h2>
+		  					<h2 class="screen__title h1">Принцип работы</h2>
 		  					<p class="screen__text">Основное отличие гидропескоструйной обработки ― наличие воды в составе чистящего вещества. Вода предотвращает образование пыли, что качественно улучшает условия труда и повышает безопасность рабочих. Для защиты от возможной коррозии в воду добавляется ингибитор.</p>
 		  					<a href="#video-popup" class="btn modal-inline"><i class="icon-play"></i>Посмотреть видео</a>
 		  				</div>
@@ -207,7 +208,7 @@
   		</section>
   		<section id="main-slider" class="main-slider slider slider_relative screen">
   			<ul class="slides">
-  				<li class="screen screen_safe">
+  				<li class="screen screen_safe slider__item">
 		  			<div class="screen__holder">
 		  				<div class="screen__row">
 		  					<div class="screen__cell">
@@ -225,7 +226,7 @@
 		  				</div>
 		  			</div>
 		  		</li>
-		  		<li class="screen screen_economy">
+		  		<li class="screen screen_economy slider__item">
 		  			<div class="screen__holder">
 		  				<div class="screen__row">
 		  					<div class="screen__cell">
@@ -237,16 +238,16 @@
 		  					</div>
 		  					<div class="screen__cell">
 		  						<div class="screen__content">
-				  					<h2 class="screen__title">Экономия <br>на материалах</h2>
+				  					<h2 class="screen__title h1">Экономия <br>на материалах</h2>
 				  					<h3 class="screen__subtitle">Повышенное рабочее давление</h3>
 				  					<p class="screen__text">При очистке металла давлением в 10-12 атмосфер (вместо стандартных 6-8) сокращается расход абразива с 30 до 14 кг на м². Так же гидрообразивная очистка увеличивает срок эксплуатации абразивных рукавов в 2 раза, а сопел ― в 3 раза.</p>
-				  					<a href="#" class="btn"><i class="icon-rub"></i>Экономика процесса</a>
+				  					<a href="#economy-process" class="btn modal-inline"><i class="icon-rub"></i>Экономика процесса</a>
 				  				</div>
 		  					</div>
 		  				</div>
 		  			</div>
 		  		</li>
-		  		<li class="screen screen_optim">
+		  		<li class="screen screen_optim slider__item">
 						<div class="screen__holder">
 							<div class="screen__row">
 								<div class="screen__cell">
@@ -300,15 +301,15 @@
   					</div>
   					<div class="screen__cell">
   						<div class="screen__content">
-		  					<h2 class="screen__title">ПГА «Энергия»</h2>
+		  					<h2 class="screen__title h1">ПГА «Энергия»</h2>
 		  					<p class="screen__text">
 		  						Объем загрузки абразива ― 300 л / <a href="#" class="pseudo">80 л</a> <a href="#" rel="tooltip" data-placement="top" data-toggle="tooltip" title="Любой объем на заказ"><i class="icon-tooltip icon-tooltip_blue"></i></a><br>
 									Рабочее давление ― до 12 атм. <br>
 									Режимы работы ― мокрый, сухой, переменной влажности <br>
 									Электропитание ― 12 В <br>
 		  					</p>
-		  					<p class="energy__price">420 000<span class="rub">&#8399;</span></p>
-		  					<a href="#" class="btn btn_orange energy__btn"><i class="icon-order"></i>Заказать</a>
+		  					<p class="price">420 000<span class="rub">&#8399;</span></p>
+		  					<a href="#order-popup" class="btn btn_orange energy__btn modal-inline"><i class="icon-order"></i>Заказать</a>
 		  					<a href="#economy-process" class="energy__detail modal-inline">Подробнее</a>
 		  				</div>
   					</div>
@@ -324,27 +325,65 @@
 		</p>
   </footer>
   <div class="popups">
+  	<div class="popup popup_dark order-popup" id="order-popup">
+  		<div class="popup__holder">
+			<div class="popup__half">
+				<p class="h2">Свяжитесь <br>с нами <br>для заказа<br>аппарата «Энергия»</p>
+			</div><div class="popup__half">
+				
+			</div>
+			</div>
+  	</div>
   	<div class="popup popup_dark completing-popup slider" id="completing-popup">
   		<div class="popup__holder">
 			<ul class="slides">
-				<li>
-					<div class="popup__half">
-						<div class="completing-popup__img">
-							<img src="f/i/completing/1.jpg" alt="">
-						</div>
-					</div><div class="popup__half">
-						<h2>Колба</h2>
-
-					</div>
-				</li>
-				<li>
+				<li class="slider__item">
 					<div class="popup__half">
 						<div class="completing-popup__img">
 							<img src="f/i/completing/1.jpg" alt="">
 						</div>
 					</div><div class="popup__half">
 						<div class="scroll">
-							<h2>Клапан РТ</h2>
+							<p class="h2">Колба</p>
+							<ul>
+								<li><p>Пройдены гидроиспытания и проведен ультразвуковой контроль сварных стыковых соединений по СТО 00220256-005-2005.</p></li>
+								<li><p>Каждая колба имеет паспорт</p></li>
+								<li><p>Колба снабжена колесами и рукоятками облегчающими перемещение аппарата на месте производства работ</p></li>
+								<li><p>Для погрузочных и разгрузочных работ использовать проушину в верхней части колбы</p></li>
+							</ul>
+							<p class="h3">Характеристики</p>
+							<div class="completing-popup__detail">
+								<p class="line line_light"><span>Толщина стенок колбы</span><span>6 мм.</span></p>
+								<p class="line line_light"><span>Рабочее давление</span><span>1,2 МПа</span></p>
+								<p class="line line_light"><span>Расчетное давление</span><span>1,2 МПа</span></p>
+								<p class="line line_light"><span>Пробное давление испытания</span><span>1,5 МПа</span></p>
+								<p class="line line_light"><span>Рабочая температура среды</span><span>+5…+35 Со</span></p>
+								<p class="line line_light"><span>Минимально допустимая <br>температура стенки</span><span>-20 Со</span></p>
+								<p class="line line_light"><span>Рабочая среда</span><span>Пульпообразный абразивный материал</span></p>
+
+								<p class="line line_light"><span>Группа сосуда по ПБ</span><span>03-584-03</span></p>
+								<p class="line line_light"><span>Прибавка для компенсации <br>коррозии</span><span>2 мм</span></p>
+								<p class="line line_light"><span>Вместимость</span><span>0,3 м3 и 0,08 м3</span></p>
+								<p class="line line_light"><span>Расчетный срок службы</span><span>20 лет</span></p>
+							</div>
+							<p class="h3">Основные регламентирующие <br>документы</p>
+							<p class="regl"><i class="icon-doc"></i><a href="#">СА 03-003-07</a></p>
+							<p class="regl"><i class="icon-doc"></i><a href="#">ГОСТ Р 52857.2-2007</a>
+								<b>Сосуды и аппараты. Нормы и методы расчета на прочность. Расчет цилиндрических и конических обечаек, выпуклых и плоских днищ и крышек.</b>
+							</p>
+							<p class="regl"><i class="icon-doc"></i><a href="#">ГОСТ Р 52857.3-2007</a></p>
+							<p class="regl"><i class="icon-doc"></i><a href="#">ГОСТ Р 52857.1-2007</a></p>
+						</div>
+					</div>
+				</li>
+				<li class="slider__item">
+					<div class="popup__half">
+						<div class="completing-popup__img">
+							<img src="f/i/completing/1.jpg" alt="">
+						</div>
+					</div><div class="popup__half">
+						<div class="scroll">
+							<p class="h2">Клапан РТ</p>
 							<p>Предназначен для подачи абразивного материала в абразивный тракт, оперативного перекрытия подачи абразива и регулировки объема подачи абразива в тракт.</p>
 							<p>Отличается от традиционного шиберного затвора скоростью реакции на управляющее воздействие вкл/выкл, определяемой скоростью срабатывания электрической линии. Такой способ управления подачей абразива считается наиболее безопасным.</p><p>Рабочим элементом, служащим для перекрытия подачи абразива, является плунжерная пара из карбида бора – втулка и палец.</p>
 						</div>
