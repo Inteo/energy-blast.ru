@@ -325,14 +325,30 @@
 		</p>
   </footer>
   <div class="popups">
-  	<div class="popup popup_dark order-popup" id="order-popup">
-  		<div class="popup__holder">
-			<div class="popup__half">
-				<p class="h2">Свяжитесь <br>с нами <br>для заказа<br>аппарата «Энергия»</p>
-			</div><div class="popup__half">
-				
-			</div>
-			</div>
+  	<div class="popup popup_dark order-popup form" id="order-popup">
+  		<div class="popup__holder popup__holder_form">
+  			<div class="popup__half">
+  				<h2 class="h0">Свяжитесь <br>с нами <br>для заказа<br>аппарата <br> «Энергия»</h2>
+  			</div><div class="popup__half">
+					<p class="form__text">Вы можете отправить нам заявку через сайт или просто позвонить по телефону <span>(495) 99-88-432.</span></p>
+					<form id="feedback" method="post" action="/send/">
+					<div class="form__inputs">
+						<input type="text" class="input valid" placeholder="Ваше имя" name="name" id="name"><label for="name">&nbsp;</label>
+						<input type="text" class="input valid" placeholder="Организация" name="company" id="company"><label for="company">&nbsp;</label>
+					</div><div class="form__inputs">
+						<input type="email" class="input valid" placeholder="Электронная почта" name="email" id="email"><label for="email">&nbsp;</label>
+						<input type="tel" class="input valid" placeholder="Телефон" name="phone" id="phone"><label for="phone">&nbsp;</label>
+					</div>
+					<div class="form__radio">
+						<span>Объем колбы</span>
+						<input type="radio" checked="checked" name="flask" id="flask1"/><label for="flask1">300 л</label>
+						<input type="radio" name="flask" id="flask2"/><label for="flask2">80 л</label>
+						<input type="radio" name="flask" id="flask3"/><label for="flask3">Другой</label>
+					</div>
+					<textarea class="input" placeholder="Комментарии к заказу" name="comment"></textarea>
+					<button class="btn btn_blue"><i class="icon-mail"></i>Отправить заявку</button>
+  			</div>
+  		</div>
   	</div>
   	<div class="popup popup_dark completing-popup slider" id="completing-popup">
   		<div class="popup__holder">

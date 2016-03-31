@@ -26,6 +26,10 @@ $(document).ready(function() {
 				$.fancybox.helpers.overlay.overlay.css("background", "#282b2b");
 				$.fancybox.helpers.overlay.overlay.addClass("tpl-dark");
 			}
+			if(this.content.hasClass("popup_grey")) {
+				$.fancybox.helpers.overlay.overlay.css("background", "#35393a");
+				$.fancybox.helpers.overlay.overlay.addClass("tpl-grey");
+			}
 		}
 	});	
 	  $(".input.valid").unbind().blur( function(){

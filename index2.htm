@@ -196,7 +196,7 @@
 							<div class="iconized-text-holder">
 								<div class="iconized-text-holder__half">
 									<p class="iconized-text iconized-text_light iconized-text_bot"><span><span><i class="icon-analog"></i></span><span><i>Нет аналогов</i><br>на российском рынке</span></span></p>
-									<p class="iconized-text iconized-text_light"><span><span><i class="icon-cert"></i></span><span>Продукция <br><a href="#" class="pseudo">сертифицирована</a></span></span></p>
+									<p class="iconized-text iconized-text_light"><span><span><i class="icon-cert"></i></span><span>Продукция <br><a href="#cert-popup" class="pseudo modal-inline">сертифицирована</a></span></span></p>
 								</div><div class="iconized-text-holder__half">
 									<p class="iconized-text iconized-text_light iconized-text_bot"><span><span><i class="icon-cheap"></i></span><span>В 2 раза <i>дешевле</i><br>зарубежных аналогов</span></span></p>
 									<p class="iconized-text iconized-text_light"><span><span><i class="icon-warranty"></i></span><span><i>Гарантия</i> <br>на продукцию 1 год</span></span></p>
@@ -285,7 +285,7 @@
 								<p class="prod-process__num">2.</p>
 								<h3 class="h2 prod-process__title">Очистка поверхности</h3>
 								<p class="screen__text">При очистке поверхности персонал должен соблюдать правила безопасности труда и четко следовать руководству по эксплуатации аппарата. Отсутствие пыли при работе аппарата позволяет безопасно выполнять пескоструйную очистку параллельно с остальными ремонтными работами. Это эффективно оптимизирует рабочие процессы.</p>
-								<p class="iconized-text iconized-text_big"><span><span><i class="icon-cloth"></i></span><span><a href="#" class="pseudo">Комплект одежды<br>для работы</a></span></span></p>
+								<p class="iconized-text iconized-text_big"><span><span><i class="icon-cloth"></i></span><span><a href="#cloth-popup" class="pseudo modal-inline">Комплект одежды<br>для работы</a></span></span></p>
 	  					</div>
 	  					<div class="screen__cell prod-process__cell">
 	  						<div class="prod-process__img">
@@ -390,14 +390,60 @@
 		</p>
   </footer>
   <div class="popups">
-  	<div class="popup popup_dark order-popup" id="order-popup">
+  	<div class="popup popup_center popup_cert popup_unback popup_grey" id="cert-popup">
+			<div class="popup__holder">
+				<div class="popup__half">
+					<img src="f/i/cert/1.jpg" alt="">
+				</div><div class="popup__half">
+					<img src="f/i/cert/2.jpg" alt="">
+				</div>
+			</div>
+		</div>
+  	<div class="popup popup_cloth popup_unback popup_grey popup_center cloth-popup" id="cloth-popup">
+			<div class="popup__holder">
+				<div class="popup__half">
+					<img src="f/i/cloth.png" alt="">
+					<ul class="cloth-popup__captions">
+						<li>Маска защитная<span>300<i class="rub">&#8399;</i></span></li>
+						<li>Респираторная маска<span>50<i class="rub">&#8399;</i></span></li>
+						<li>Каска<span>500<i class="rub">&#8399;</i></li>
+						<li>Наушники<br>шумоподавляющие<span>500<i class="rub">&#8399;</i></span></li>
+						<li>Влагозащитный<br>костюм<span>5000<i class="rub">&#8399;</i></span></li>
+						<li>Перчатки<span>300<i class="rub">&#8399;</i></span></li>
+					</ul>
+				</div><div class="popup__half">
+					<p class="h2">Безопасно и выгодно</p>
+					<p>Отсутствие пыли при работе аппарата позволяет выполнять очистку без использования дорогостоящего шлема пескоструйщика и системы очистки воздуха дыхания. При этом сводится к минимуму вред здоровья не только самого пескоструйщика, выполняющего очистку, но и других рабочих.</p>
+					<p class="iconized-text"><span><span><i class="icon-cheap"></i></span><span>Наш комплект одежды в <i>7 раз дешевле</i> традиционного костюма пескоструйщика</span></span></p>
+				</div>
+			</div>
+		</div>
+  	<div class="popup popup_unback popup_dark order-popup form" id="order-popup">
   		<div class="popup__holder">
-			<div class="popup__half">
-				<p class="h2">Свяжитесь <br>с нами <br>для заказа<br>аппарата «Энергия»</p>
-			</div><div class="popup__half">
-				
-			</div>
-			</div>
+  			<div class="popup__row">
+	  			<div class="popup__half">
+	  				<h2 class="h0">Свяжитесь <br>с нами <br>для заказа<br>аппарата <br> «Энергия»</h2>
+	  			</div><div class="popup__half">
+						<p class="form__text">Вы можете отправить нам заявку через сайт или просто позвонить по телефону <span>(495) 99-88-432.</span></p>
+						<form id="feedback" method="post" action="/send/">
+						<div class="form__inputs">
+							<input type="text" class="input valid" placeholder="Ваше имя" name="name" id="name"><label for="name">&nbsp;</label>
+							<input type="text" class="input valid" placeholder="Организация" name="company" id="company"><label for="company">&nbsp;</label>
+						</div><div class="form__inputs">
+							<input type="email" class="input valid" placeholder="Электронная почта" name="email" id="email"><label for="email">&nbsp;</label>
+							<input type="tel" class="input valid" placeholder="Телефон" name="phone" id="phone"><label for="phone">&nbsp;</label>
+						</div>
+						<div class="form__radio">
+							<span>Объем колбы</span>
+							<input type="radio" checked="checked" name="flask" id="flask1"/><label for="flask1">300 л</label>
+							<input type="radio" name="flask" id="flask2"/><label for="flask2">80 л</label>
+							<input type="radio" name="flask" id="flask3"/><label for="flask3">Другой</label>
+						</div>
+						<textarea class="input" placeholder="Комментарии к заказу" name="comment"></textarea>
+						<button class="btn btn_blue"><i class="icon-mail"></i>Отправить заявку</button>
+	  			</div>
+  			</div>
+  		</div>
   	</div>
   	<div class="popup popup_dark completing-popup slider" id="completing-popup">
   		<div class="popup__holder">
