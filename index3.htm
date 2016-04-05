@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=1024">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="f/i//favicon.ico">
+    <title>Energy Blast</title>
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="f/js/jquery-1.11.3.min.js"></script>
+    <script src="f/js/bootstrap.min.js"></script>
+    <script src="f/js/jquery.transit.min.js"></script>
+    <script src="f/js/bootstrap-tooltip.js"></script>
+    <script src="f/js/jquery.flexslider-min.js"></script>
+    <script src="f/js/jquery.mCustomScrollbar.js"></script>
+    <script src="f/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+    <link rel="stylesheet" href="f/fancybox/jquery.fancybox.css?v=2.1.5" media="screen">
+    <link rel="stylesheet" href="f/css/flexslider.css">
+    <link rel="stylesheet" href="f/css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="f/css/main.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,700,700italic&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans&subset=latin,cyrillic-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+    <script src="//api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+    <!--[if IE]>
+    <link rel="stylesheet" href="f/css/ie.css">
+    <![endif]-->
+    <script src="f/js/common.js"></script>
+    <script>
+    	(function($) {
+		    $.fn.removeClassWild = function(mask) {
+	        return this.removeClass(function(index, cls) {
+	            var re = mask.replace(/\*/g, '\\S+');
+	            return (cls.match(new RegExp('\\b' + re + '', 'g')) || []).join(' ');
+	        });
+		    };
+			})(jQuery);
+      $(document).ready(function() {
+       	$('#about-slider').flexslider({
+			    animation: "slide",
+			    controlNav: false,
+			    slideshow: false,
+			    customDirectionNav: $(".about-slider__holder .flexslider-navigation a"),
+					animationLoop: false
+			  });
+       	$('#about-slider-caption').flexslider({
+			    animation: "fade",
+			    controlNav: false,
+			   	slideshow: false,
+			   	customDirectionNav: $(".about-slider__holder .flexslider-navigation a"),
+					animationLoop: false
+			  });
+      });
+      $(function(){
+      	$(".map__caption a").click(function(){
+      		$(".map__tooltip").removeClass("map__tooltip_active");
+      		$(this).find(".map__tooltip").addClass("map__tooltip_active");
+      		return false;
+      	});
+      	$(window).click(function(){
+      		$(".map__tooltip").removeClass("map__tooltip_active");
+      	});
+      	$(".product__links a").click(function(){
+      		$(".product__links").removeClassWild("product__links_*"); 
+      		var cl = "product__links_" + parseInt($(this).closest("li").index() + 1);
+      		$(".product__links").addClass(cl);
+      		$(".product__img img").removeClass("active");
+      		$(".product__img img").eq($(this).closest("li").index()).addClass("active");
+      		$(".product__text li").removeClass("active");
+      		$(".product__text li").eq($(this).closest("li").index()).addClass("active");
+      		return false;
+      	});
+      })
+      ymaps.ready(function () {
+        var myMap = new ymaps.Map('map', {
+            center: [55.603436, 37.034278],
+            zoom: 16,
+            controls: [],
+          }),
+          Placemark1 = new ymaps.Placemark([55.603436, 37.034278], {
+            hintContent: '',
+            balloonContent: ''
+          },
+          {
+            iconLayout: 'default#image',
+            iconImageHref: 'f/i/marker.png',
+            iconImageSize: [30, 39],
+            iconImageOffset: [-15, -39]
+          });
+        myMap.geoObjects.add(Placemark1);
+       });
+    </script>
+  </head>
+<body>
+  <div class="wrap clearfix">
+		<header class="header"> <!-- header_dark -->
+			<div class="header__holder">	
+				<p class="header__logo"><a href="/">
+					<img src="f/i/logo.png" alt="">
+					<span>Бластинг без пыли</span>
+				</a></p>
+				<div class="header__menu">
+					<ul class="main-menu">
+						<li class="main-menu__item"><a href="#" class="main-menu__link">Продукция</a></li>
+						<li class="main-menu__item">
+							<a href="#" class="main-menu__link">Сферы применения</a>
+							<div class="main-menu__sub">
+								<ul>
+									<li><a href="#">Судоремонтные работы и судостроительство</a></li>
+									<li><a href="#">Нефтегазовая промышленность</a></li>
+									<li><a href="#">Строительство</a></li>
+									<li><a href="#">Железнодорожный транспорт</a></li>
+									<li><a href="#">Автотранспорт</a></li>
+									<li><a href="#">Оборонная промышленность</a></li>
+									<li><a href="#">Тяжелая промышленность</a></li>
+									<li><a href="#">Химическая и атомная промышленность</a></li>
+									<li><a href="#">Пищевая промышленность</a></li>
+									<li><a href="#">Очистка и реставрация зданий</a></li>
+									<li><a href="#">Авиация</a></li>
+									<li><a href="#">Автосервис</a></li>
+									<li><a href="#">Типография</a></li>
+									<li><a href="#">Пресс-формы</a></li>
+								</ul>
+							</div>
+						</li>
+						<li class="main-menu__item"><a href="#" class="main-menu__link">Оплата и доставка</a></li>
+						<li class="main-menu__item main-menu__item_active"><a href="#" class="main-menu__link">О компании</a></li>
+						<li class="main-menu__item"><a href="#" class="main-menu__link">Контакты</a></li>
+						<li class="main-menu__item">
+							...
+							<div class="main-menu__sub main-menu__sub_short">
+								<ul>
+									<li><a href="#">Оплата и доставка</a></li>
+									<li><a href="#">О компании</a></li>
+									<li><a href="#">Контакты</a></li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<p class="header__phone"><span>(495)</span> 99-88-432</p>
+			</div>
+  	</header>
+  	<div class="content">
+  		<section class="screen screen_full screen_top">
+  			<div class="screen__holder screen__holder_top screen__holder_left">
+					<div class="screen__row">
+	  				<div class="screen__cell">
+							<h1 class="h0">О компании</h1>
+	  				</div>
+	  				<div class="screen__cell">
+							<p class="screen__text screen__text_big">Основное направление деятельности нашей компании — производство и продажа пневмогидроабразивный аппаратов серии ПГА, а также ингибитора атмосферной коррозии «<a href="#">Амидал</a>».</p>
+	  				</div>
+	  			</div>
+	  		</div>
+	  		<div class="screen__holder screen__holder_left screen__holder screen__holder_bot0">
+	  			<div class="screen__row">
+						<p class="utterance">Основная проблема современного предприятия — даже не найти деньги на технологическое перевооружение, а найти такое решение и людей, чтобы не остановиться на полпути, преодолевая трудности по ходу внедрения. Мы не только предлагаем оборудование, мы предлагаем <span>алгоритм внедрения</span> нашего оборудования на вашем предприятии».</p>
+					</div>
+				</div>
+	  		<div class="screen__holder screen__holder_top0 screen__holder_bot0 screen__holder_left">
+	  			<div class="screen__row">
+						<div class="screen__cell"></div>
+						<div class="screen__cell">
+							<p class="iconized-text iconized-text_big iconized-text_dir"><span><span><i class="icon-dir"></i></span><span>Кутянин Максим Олегович <i>Генеральный директор ООО «ЭНЕРГИЯ»</i></span></span></p>
+						</div>
+					</div>
+	  		</div>
+	  		<div class="screen__holder screen__holder_bot0 screen__holder_left">
+	  			<div class="screen__row">
+	  				<div class="screen__cell">
+							<div class="prom-detail">
+								<span class="prom-detail__item">от <b>3</b> недель <span>время изготовления<br> партии</span></span>
+								<span class="prom-detail__item">от <b>20</b> аппаратов <span>в партии</span></span>
+							</div>
+						</div>
+						<div class="screen__cell">
+							<h2>Собственное производство</h2>
+							<p class="screen__text screen__text_big">Производственная база, оснащенная современным высоко- технологичным оборудованием, и команда квалифицированных специалистов позволяет нам производить до 30 единиц продукции одновременно.</p>
+						</div>
+	  			</div>	
+	  		</div>
+				<div class="screen__holder screen__holder_2-3 screen__holder_top40  screen__holder_bot0">
+					<div class="screen__row">
+	  				<div class="screen__cell">
+	  					<div class="about-slider">
+	  						<div class="about-slider__holder slider" id="about-slider">
+	  							<ul class="slides">
+		  							<li><img src="f/i/about/1.jpg" alt=""></li>
+		  							<li><img src="f/i/about/1.jpg" alt=""></li>
+		  						</ul>
+		  						<div class="flexslider-navigation">
+					  				<a href="#" class="flex-prev">&nbsp;</a>
+					  				<a href="#" class="flex-next">&nbsp;</a>
+					  			</div>
+	  						</div>
+	  						<div class="about-slider-caption slider" id="about-slider-caption">
+									<ul class="slides">
+										<li>Очистка колб аппаратом ПГА-300/12 <br>перед нанесением грунта.</li>
+										<li>Мы чистим наши аппараты до S<sub>a</sub> 2,5и <br> покрываем средствами Hempel и Jotun</li>
+									</ul>
+	  						</div>
+	  					</div>
+	  				</div>
+	  				<div class="screen__cell screen__cell_center">
+							<p class="iconized-text iconized-text_ad iconized-text_bot40"><span><span><i class="icon-analog"></i></span><span><i>Нет</i> российских аналогов</span></span>
+							</p><p class="iconized-text iconized-text_ad iconized-text_bot40"><span><span><i class="icon-cert"></i></span><span>Продукция <br><a href="#cert-popup" class="pseudo modal-inline">сертифицирована</a></span></span>
+							</p><p class="iconized-text iconized-text_ad iconized-text_bot40"><span><span><i class="icon-cheap"></i></span><span>В 2 раза <i>дешевле</i><br>зарубежных аналогов</span></span>
+							</p><p class="iconized-text iconized-text_ad"><span><span><i class="icon-warranty"></i></span><span><i>Гарантия</i> <br>на продукцию 1 год</span></span></p>
+	  				</div>
+					</div>
+				</div>
+				<div class="screen__holder screen__holder_bot screen__holder_left">
+					<div class="screen__row">
+						<div class="screen__cell"></div>
+	  				<div class="screen__cell">
+							<p class="screen__text screen__text_big">Мы используем комплектующие только проверенного качества от надежных отечественных и зарубежных поставщиков. Сборку установок, пуско-наладочные и испытательные мероприятия проводят опытные мастера нашей компании. Мы производим продукцию с соблюдением всех норм и требований к безопасности пескоструйного оборудования.</p>
+							<p class="iconized-text iconized-text_big"><span><span><i class="icon-docx"></i></span><span>Заключение об испытаниях ПГА «Энергия»<br><a href="#">Посмотреть</a></span></span></p>
+	  				</div>
+	  			</div>
+				</div>
+  		</section>
+  		<section class="screen screen_full screen_dark">
+				<div class="screen__holder screen__holder_left screen__holder_top">
+					<div class="screen__row">
+						<div class="screen__cell">
+							<h2 class="h0">Нам доверяют ведущие <br> предприятия <br>России</h2>
+						</div>
+	  				<div class="screen__cell">
+	  					<p class="screen__text screen__text_big">Многие компании уже по достоинству оценили аппараты нашего производства, о чем свидетельствует все возрастающая потребность в ингибиторе коррозии, который обеспечивает корректную и бесперебойную работу оборудования.</p>
+	  					<ul class="companies">
+	  						<li><img src="f/i/companies/1.png" alt="">
+	  						</li><li><img src="f/i/companies/2.png" alt="">
+	  						</li><li><img src="f/i/companies/3.png" alt="">
+	  						</li><li><img src="f/i/companies/4.png" alt="">
+	  						</li><li><img src="f/i/companies/5.png" alt=""></li>
+	  					</ul>
+	  				</div>
+					</div>
+				</div>
+				<div class="screen__holder screen__holder_left">
+					<div class="screen__row">
+						<div class="screen__cell">
+							<div class="map">
+								<img src="f/i/map.png" alt="" class="map__img">
+								<img src="f/i/map-lines.png" alt="" class="map__lines">
+								<ul class="map__captions">
+									<li class="map__caption">
+										<a href="#" class="pseudo">
+											<span class="map__tooltip">
+											<span class="map__tooltip-label iconize-device">Аппарат</span>
+											<span class="map__tooltip-value"><i>ПГА-30 «Энергия»</i></span>
+											<span class="map__tooltip-label iconize-using">Применение</span>
+											<span class="map__tooltip-value">Очистка рам полуприцепов грузовиков</span>
+										</span>
+											<b></b>ООО «Еврострой»
+										</a><span>Салехард</span>
+									</li>
+									<li class="map__caption"><a href="#" class="pseudo">
+										<span class="map__tooltip">
+											<span class="map__tooltip-label iconize-device">Аппарат</span>
+											<span class="map__tooltip-value"><i>ПГА-30 «Энергия»</i></span>
+											<span class="map__tooltip-label iconize-using">Применение</span>
+											<span class="map__tooltip-value">Очистка рам полуприцепов грузовиков</span>
+										</span>
+										<b></b>ООО «Ступени»</a><span>Ярославль</span>
+									</li>
+									<li class="map__caption"><a href="#" class="pseudo">
+										<span class="map__tooltip">
+											<span class="map__tooltip-label iconize-device">Аппарат</span>
+											<span class="map__tooltip-value"><i>ПГА-30 «Энергия»</i></span>
+											<span class="map__tooltip-label iconize-using">Применение</span>
+											<span class="map__tooltip-value">Очистка рам полуприцепов грузовиков</span>
+										</span>
+										<b></b>ОАО «Промфинстрой»</a><br><a href="#" class="pseudo">
+											<span class="map__tooltip">
+											<span class="map__tooltip-label iconize-device">Аппарат</span>
+											<span class="map__tooltip-value"><i>ПГА-30 «Энергия»</i></span>
+											<span class="map__tooltip-label iconize-using">Применение</span>
+											<span class="map__tooltip-value">Очистка рам полуприцепов грузовиков</span>
+										</span>
+										<b></b>НПО «Гидромаш»</a><span>Москва</span>
+									</li>
+									<li class="map__caption"><a href="#" class="pseudo">
+										<span class="map__tooltip">
+											<span class="map__tooltip-label iconize-device">Аппарат</span>
+											<span class="map__tooltip-value"><i>ПГА-30 «Энергия»</i></span>
+											<span class="map__tooltip-label iconize-using">Применение</span>
+											<span class="map__tooltip-value">Очистка рам полуприцепов грузовиков</span>
+										</span>
+										<b></b>ИП «Идрисов»</a><span>Махачкала</span>
+									</li>
+									<li class="map__caption map__caption_right"><a href="#" class="pseudo">
+										<span class="map__tooltip">
+											<span class="map__tooltip-label iconize-device">Аппарат</span>
+											<span class="map__tooltip-value"><i>ПГА-30 «Энергия»</i></span>
+											<span class="map__tooltip-label iconize-using">Применение</span>
+											<span class="map__tooltip-value">Очистка рам полуприцепов грузовиков</span>
+										</span>
+										<b></b>ООО «ПетровТранс»</a><span>Санкт-Петербург</span>
+									</li>
+									<li class="map__caption map__caption_right"><a href="#" class="pseudo">
+										<span class="map__tooltip">
+											<span class="map__tooltip-label iconize-device">Аппарат</span>
+											<span class="map__tooltip-value"><i>ПГА-30 «Энергия»</i></span>
+											<span class="map__tooltip-label iconize-using">Применение</span>
+											<span class="map__tooltip-value">Очистка рам полуприцепов грузовиков</span>
+										</span>
+										<b></b>ОАО «Преголь»</a><span>Калининград</span>
+									</li>
+									<li class="map__caption map__caption_right"><a href="#" class="pseudo">
+										<span class="map__tooltip">
+											<span class="map__tooltip-label iconize-device">Аппарат</span>
+											<span class="map__tooltip-value"><i>ПГА-30 «Энергия»</i></span>
+											<span class="map__tooltip-label iconize-using">Применение</span>
+											<span class="map__tooltip-value">Очистка рам полуприцепов грузовиков</span>
+										</span>
+										<b></b>ООО «Альпантикор»</a><span>Краснодар</span>
+									</li>
+									<li class="map__caption map__caption_right"><a href="#" class="pseudo">
+										<span class="map__tooltip">
+											<span class="map__tooltip-label iconize-device">Аппарат</span>
+											<span class="map__tooltip-value"><i>ПГА-30 «Энергия»</i></span>
+											<span class="map__tooltip-label iconize-using">Применение</span>
+											<span class="map__tooltip-value">Очистка рам полуприцепов грузовиков</span>
+										</span>
+										<b></b>«?????????»</a><span><i class="icon-turkey"></i>Турция, Трабзон</span>
+									</li>
+									<li class="map__caption map__caption_right"><a href="#" class="pseudo">
+										<span class="map__tooltip">
+											<span class="map__tooltip-label iconize-device">Аппарат</span>
+											<span class="map__tooltip-value"><i>ПГА-30 «Энергия»</i></span>
+											<span class="map__tooltip-label iconize-using">Применение</span>
+											<span class="map__tooltip-value">Очистка рам полуприцепов грузовиков</span>
+										</span>
+										<b></b>«NBA Consult»</a><span><i class="icon-vietnam"></i>Вьетнам</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="screen__cell">
+							<h3 class="h2">Широкие сферы<br> применения</h3>
+							<p class="screen__text screen__text_big screen__text_bot30">Аппараты «Энергия» успешно применяются на крупнейших судоремонтных и нефтегазовых предприятиях России. Надежность, износостойкость и экономичность нашего оборудования высоко оценили и зарубежом.</p>
+							<a href="#" class="anim-link anim-link_blue">Все сферы применения<i></i><i></i><i></i></a>
+						</div>
+					</div>
+				</div>
+  		</section>
+  		<section class="screen screen_full">
+				<div class="screen__holder screen__holder_left screen__holder_top">
+					<div class="screen__row">
+						<div class="screen__cell">
+							<h2 class="h0">Качество <br>и надежность продукции</h2>
+						</div>
+						<div class="screen__cell">
+							<p class="screen__text">
+								<span class="screen__text screen__text_big screen__text_bot30">Покупая наши апараты, вы получаете износостойкое, долговечное, экономичное оборудование, которое позволяет оптимизировать производственные и операционные процессы и, как следствие, повысить уровень прибыли и рентабельности предприятия.</span>
+								<a href="#" class="anim-link anim-link_blue">Подробнее<i></i><i></i><i></i></a>
+							</p>
+							
+							<div class="iconized-text-holder">
+								<div class="iconized-text-holder__half">
+									<p class="iconized-text"><span><span><i class="icon-20"></i></span><span>лет <i>срок <br>эксплуатации</i> колбы</span></span></p>
+								</div><div class="iconized-text-holder__half">
+									<p class="iconized-text"><span><span><i class="icon-1"></i></span><span>год <i>гарантии</i> <br>от нашей компании</span></span></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="screen__holder product">
+					<div class="screen__row">
+						<div class="screen__cell screen__cell_center">
+							<div class="product__control">
+								<div class="product__img">
+									<img src="f/i/product/1.png" class="active" alt="">
+									<img src="f/i/product/2.png" alt="">
+									<img src="f/i/product/3.png" alt="">
+									<img src="f/i/product/4.png" alt="">
+									<img src="f/i/product/5.png" alt="">
+									<img src="f/i/product/6.png" alt="">
+								</div>
+								<ul class="product__links product__links_1">
+									<li><a href="#">&nbsp;</a></li>
+									<li><a href="#">&nbsp;</a></li>
+									<li><a href="#">&nbsp;</a></li>
+									<li><a href="#">&nbsp;</a></li>
+									<li><a href="#">&nbsp;</a></li>
+									<li><a href="#">&nbsp;</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="screen__cell screen__cell_center">
+							<ul class="product__text">
+								<li class="active">
+									<div class="product__text-holder">
+										<h3 class="h1">Качество <br>и надежность продукции</h3>
+										<p class="screen__text  screen__text_bot0">При очистке металла давлением в 10-12 атмосфер (вместо стандартных 6-8) сокращается расход абразива с 30 до 14 кг на м². Так же гидрообразивная очистка продляет срок эксплуатации абразивных рукавов в 2 раза, а сопел ― в 3 раза.</p>
+									</div>
+								</li>
+								<li>
+									<div class="product__text-holder">
+										<h3 class="h1">Характеристики<br>аппарата «Энергия»</h3>
+										<p class="line"><span>Объем загрузки <br> абразива</span><span>300 л / 30 л</span></p>
+										<p class="line"><span>Рабочее давление</span><span>до 12 атм</span></p>
+										<p class="line"><span>Режимы работы</span><span>мокрый, сухой, переменной влажности</span></p>
+										<p class="line"><span>Электропитание</span><span>12 В</span></p>
+									</div>
+								</li>
+								<li>
+									<div class="product__text-holder">
+										<h3 class="h1">Безопасно и выгодно</h3>
+										<p class="screen__text  screen__text_bot0">Отсутствие пыли при работе аппарата позволяет выполнять очистку без использования дорогостоящего шлема пескоструйщика и системы очистки воздуха дыхания. При этом сводится к минимуму вред здоровья не только самого пескоструйщика, выполняющего очистку, но и других рабочих.</p>
+									</div>
+								</li>
+								<li>
+									<div class="product__text-holder">
+										<h3 class="h1">Оптимизация процессов</h3>
+										<p class="screen__text screen__text_bot0">Отсутствие пыли при работе аппарата позволяет безопасно выполнять пескоструйную очистку параллельно с остальными ремонтными работами. Это эффективно оптимизирует рабочие процессы, а вред здоровью рабочих сводится к минимуму. </p>
+									</div>
+								</li>
+								<li>
+									<div class="product__text-holder">
+										<h3 class="h1">Экспозиция металла <br>свыше 48 часов</h3>
+										<p class="screen__text">Применение ингибитора «<a href="#">Амидал</a>» предотвращает коррозию очищенного металла минимум на 48 часов, что позволяет сократить переналадку оборудования и выполнить окрашивание очищенной поверхности за один проход.</p>
+										<a href="#" class="btn btn_blue"><i class="icon-flask"></i>Заказать ингибитор</a>
+									</div>
+								</li>
+								<li>
+									<div class="product__text-holder">
+										<h3 class="h1">Очистка без пыли</h3>
+										<p class="screen__text  screen__text_bot0">Основное отличие гидропескоструйной обработки ― наличие воды в составе чистящего вещества. Вода предотвращает образование пыли, что качественно улучшает условия труда и повышает безопасность рабочих. </p>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+  		</section>
+  		<section class="screen screen_full screen_dark">
+				<div class="screen__holder screen__holder_top screen__holder_left ">
+					<div class="screen__row">
+						<div class="screen__cell">
+							<h2 class="h0">Свяжитесь <br>с нами <br>для заказа<br>продукции</h2>
+						</div>
+						<div class="screen__cell">
+							<p class="screen__text  screen__text_big">Для заказа аппарата «Энергия» или ингибитора коррозии «Амидал» вы можете отправить заявку через сайт или просто позвонить нам по телефону  <span class="blue">(495) 99-88-432</span>.</p>
+							<a href="#" class="btn btn_blue"><i class="icon-order2"></i>Отправить заявку</a>
+							<div class="contacts">
+								<div class="contacts__half">
+									<div class="contacts__item iconize-info">
+										<p>ООО «Энергия»</p>
+										<p><span>ИНН</span>7727687075</p>
+										<p><span>КПП</span>503201001</p>
+										<p><span>Код ОКПО</span>60505574</p>
+										<p><span>Код ОКВЭД</span>75.22<a rel="tooltip" data-placement="top" data-toggle="tooltip" title="123123123" href="#"><i class="icon-tooltip icon-tooltip_dark"></i></a></p>
+									</div>
+								</div><div class="contacts__half">
+									<div class="contacts__item iconize-map">
+										<p>Россия, Московская область,</p>     
+										<p>г.Краснознаменск,</p>
+										<p>ул.Победы, д.2.</p>
+										<a class="pseudo modal-inline" href="#map-popup">На карте</a>
+									</div>
+								</div>
+								<div class="contacts__half">
+									<div class="contacts__item iconize-phone">
+										<p>+7 (495) 99 88 42</p>
+									</div>
+								</div><div class="contacts__half">
+									<div class="contacts__item iconize-mail">
+										<a class="underline" href="mailto:energy@mail.ru">energy@mail.ru</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+  		</section>
+  	</div>
+	</div>
+  <footer class="footer footer_dark">
+		<p class="footer__copyright">© 2016, ООО «Энергия»</p>
+		<p class="footer__madeby">Разработка сайта - 
+			<a href="#"><i class="icon-inteo"></i></a>
+		</p>
+  </footer>
+  <div class="popups">
+  	<div class="popup popup_center popup_grey" id="map-popup">
+			<div class="popup__holder" id="map">
+				
+			</div>
+		</div>
+  	<div class="popup popup_center popup_cert popup_unback popup_grey" id="cert-popup">
+			<div class="popup__holder">
+				<div class="popup__half">
+					<img src="f/i/cert/1.jpg" alt="">
+				</div><div class="popup__half">
+					<img src="f/i/cert/2.jpg" alt="">
+				</div>
+			</div>
+		</div>
+  	<div class="popup popup_cloth popup_unback popup_grey popup_center cloth-popup" id="cloth-popup">
+			<div class="popup__holder">
+				<div class="popup__half">
+					<img src="f/i/cloth.png" alt="">
+					<ul class="cloth-popup__captions">
+						<li>Маска защитная<span>300<i class="rub">&#8399;</i></span></li>
+						<li>Респираторная маска<span>50<i class="rub">&#8399;</i></span></li>
+						<li>Каска<span>500<i class="rub">&#8399;</i></li>
+						<li>Наушники<br>шумоподавляющие<span>500<i class="rub">&#8399;</i></span></li>
+						<li>Влагозащитный<br>костюм<span>5000<i class="rub">&#8399;</i></span></li>
+						<li>Перчатки<span>300<i class="rub">&#8399;</i></span></li>
+					</ul>
+				</div><div class="popup__half">
+					<p class="h2">Безопасно и выгодно</p>
+					<p>Отсутствие пыли при работе аппарата позволяет выполнять очистку без использования дорогостоящего шлема пескоструйщика и системы очистки воздуха дыхания. При этом сводится к минимуму вред здоровья не только самого пескоструйщика, выполняющего очистку, но и других рабочих.</p>
+					<p class="iconized-text"><span><span><i class="icon-cheap"></i></span><span>Наш комплект одежды в <i>7 раз дешевле</i> традиционного костюма пескоструйщика</span></span></p>
+				</div>
+			</div>
+		</div>
+  	<div class="popup popup_unback popup_dark order-popup form" id="order-popup">
+  		<div class="popup__holder">
+  			<div class="popup__row">
+	  			<div class="popup__half">
+	  				<h2 class="h0">Свяжитесь <br>с нами <br>для заказа<br>аппарата <br> «Энергия»</h2>
+	  			</div><div class="popup__half">
+						<p class="form__text">Вы можете отправить нам заявку через сайт или просто позвонить по телефону <span>(495) 99-88-432.</span></p>
+						<form id="feedback" method="post" action="/send/">
+						<div class="form__inputs">
+							<input type="text" class="input valid" placeholder="Ваше имя" name="name" id="name"><label for="name">&nbsp;</label>
+							<input type="text" class="input valid" placeholder="Организация" name="company" id="company"><label for="company">&nbsp;</label>
+						</div><div class="form__inputs">
+							<input type="email" class="input valid" placeholder="Электронная почта" name="email" id="email"><label for="email">&nbsp;</label>
+							<input type="tel" class="input valid" placeholder="Телефон" name="phone" id="phone"><label for="phone">&nbsp;</label>
+						</div>
+						<div class="form__radio">
+							<span>Объем колбы</span>
+							<input type="radio" checked="checked" name="flask" id="flask1"/><label for="flask1">300 л</label>
+							<input type="radio" name="flask" id="flask2"/><label for="flask2">80 л</label>
+							<input type="radio" name="flask" id="flask3"/><label for="flask3">Другой</label>
+						</div>
+						<textarea class="input" placeholder="Комментарии к заказу" name="comment"></textarea>
+						<button class="btn btn_blue"><i class="icon-mail"></i>Отправить заявку</button>
+	  			</div>
+  			</div>
+  		</div>
+  	</div>
+  	<div class="popup popup_dark completing-popup slider" id="completing-popup">
+  		<div class="popup__holder">
+			<ul class="slides">
+				<li class="slider__item">
+					<div class="popup__half">
+						<div class="completing-popup__img">
+							<img src="f/i/completing/1.jpg" alt="">
+						</div>
+					</div><div class="popup__half">
+						<div class="scroll">
+							<p class="h2">Колба</p>
+							<ul>
+								<li><p>Пройдены гидроиспытания и проведен ультразвуковой контроль сварных стыковых соединений по СТО 00220256-005-2005.</p></li>
+								<li><p>Каждая колба имеет паспорт</p></li>
+								<li><p>Колба снабжена колесами и рукоятками облегчающими перемещение аппарата на месте производства работ</p></li>
+								<li><p>Для погрузочных и разгрузочных работ использовать проушину в верхней части колбы</p></li>
+							</ul>
+							<p class="h3">Характеристики</p>
+							<div class="completing-popup__detail">
+								<p class="line line_light"><span>Толщина стенок колбы</span><span>6 мм.</span></p>
+								<p class="line line_light"><span>Рабочее давление</span><span>1,2 МПа</span></p>
+								<p class="line line_light"><span>Расчетное давление</span><span>1,2 МПа</span></p>
+								<p class="line line_light"><span>Пробное давление испытания</span><span>1,5 МПа</span></p>
+								<p class="line line_light"><span>Рабочая температура среды</span><span>+5…+35 Со</span></p>
+								<p class="line line_light"><span>Минимально допустимая <br>температура стенки</span><span>-20 Со</span></p>
+								<p class="line line_light"><span>Рабочая среда</span><span>Пульпообразный абразивный материал</span></p>
+
+								<p class="line line_light"><span>Группа сосуда по ПБ</span><span>03-584-03</span></p>
+								<p class="line line_light"><span>Прибавка для компенсации <br>коррозии</span><span>2 мм</span></p>
+								<p class="line line_light"><span>Вместимость</span><span>0,3 м3 и 0,08 м3</span></p>
+								<p class="line line_light"><span>Расчетный срок службы</span><span>20 лет</span></p>
+							</div>
+							<p class="h3">Основные регламентирующие <br>документы</p>
+							<p class="regl"><i class="icon-doc"></i><a href="#">СА 03-003-07</a></p>
+							<p class="regl"><i class="icon-doc"></i><a href="#">ГОСТ Р 52857.2-2007</a>
+								<b>Сосуды и аппараты. Нормы и методы расчета на прочность. Расчет цилиндрических и конических обечаек, выпуклых и плоских днищ и крышек.</b>
+							</p>
+							<p class="regl"><i class="icon-doc"></i><a href="#">ГОСТ Р 52857.3-2007</a></p>
+							<p class="regl"><i class="icon-doc"></i><a href="#">ГОСТ Р 52857.1-2007</a></p>
+						</div>
+					</div>
+				</li>
+				<li class="slider__item">
+					<div class="popup__half">
+						<div class="completing-popup__img">
+							<img src="f/i/completing/1.jpg" alt="">
+						</div>
+					</div><div class="popup__half">
+						<div class="scroll">
+							<p class="h2">Клапан РТ</p>
+							<p>Предназначен для подачи абразивного материала в абразивный тракт, оперативного перекрытия подачи абразива и регулировки объема подачи абразива в тракт.</p>
+							<p>Отличается от традиционного шиберного затвора скоростью реакции на управляющее воздействие вкл/выкл, определяемой скоростью срабатывания электрической линии. Такой способ управления подачей абразива считается наиболее безопасным.</p><p>Рабочим элементом, служащим для перекрытия подачи абразива, является плунжерная пара из карбида бора – втулка и палец.</p>
+						</div>
+					</div>
+				</li>
+			</ul>
+			</div>
+			<div class="flexslider-navigation flexslider-navigation_dark">
+				<a href="#" class="flex-prev">&nbsp;</a>
+				<a href="#" class="flex-next">&nbsp;</a>
+			</div>
+  	</div>
+  	<div class="popup popup_dark video-popup" id="video-popup">
+			<img src="f/i/video.jpg" alt="">
+  	</div>
+  	<div class="popup economy-process-popup" id="economy-process">
+  		<div class="popup__holder">
+			<div class="popup__half">
+				<div class="economy-process-popup__table">
+					<div class="economy-process-popup__row economy-process-popup__row_head">
+						<div class="economy-process-popup__cell"></div>
+						<div class="economy-process-popup__cell">
+							Обычный пескоструйный аппарат
+						</div>
+						<div class="economy-process-popup__cell">
+							ПГА «Энергия»
+						</div>
+					</div>
+					<div class="economy-process-popup__row">
+						<div class="economy-process-popup__cell">
+							<p class="line line_italic"><span>Объем загрузки</span></p>
+						</div>
+						<div class="economy-process-popup__cell">
+							200 л
+						</div>
+						<div class="economy-process-popup__cell">
+							300 л
+						</div>
+					</div>
+					<div class="economy-process-popup__row">
+						<div class="economy-process-popup__cell">
+							<p class="line line_italic"><span>Время переналадки</span></p>
+						</div>
+						<div class="economy-process-popup__cell">
+							15 мин
+						</div>
+						<div class="economy-process-popup__cell">
+							20 мин
+						</div>
+					</div>
+					<div class="economy-process-popup__row">
+						<div class="economy-process-popup__cell">
+							<p class="line line_italic"><span>Производственный <br> цикл</span></p>
+						</div>
+						<div class="economy-process-popup__cell">
+							30 мин <span>5 циклов за 4 ч.</span>
+						</div>
+						<div class="economy-process-popup__cell">
+							20 мин<span>4 цикла за 4 ч.</span>
+						</div>
+					</div>
+					<div class="economy-process-popup__row">
+						<div class="economy-process-popup__cell">
+							<p class="line line_italic"><span>Рабочее давление</span></p>
+						</div>
+						<div class="economy-process-popup__cell">
+							8 атм.
+						</div>
+						<div class="economy-process-popup__cell">
+							10 атм.
+						</div>
+					</div>
+					<div class="economy-process-popup__row">
+						<div class="economy-process-popup__cell">
+							<p class="line line_italic"><span>Скорость очистки</span></p>
+						</div>
+						<div class="economy-process-popup__cell">
+							20 м<sup>2</sup>/час
+						</div>
+						<div class="economy-process-popup__cell">
+							20 м<sup>2</sup>/час
+						</div>
+					</div>
+					<div class="economy-process-popup__row">
+						<div class="economy-process-popup__cell">
+							<p class="line line_italic"><span>Расход абразива</span></p>
+						</div>
+						<div class="economy-process-popup__cell">
+							36 кг/м<sup>2</sup>
+						</div>
+						<div class="economy-process-popup__cell">
+							14 кг/м<sup>2</sup>
+						</div>
+					</div>
+				</div>
+			</div><div class="popup__half">
+				<div class="scroll">
+					<p class="popup__title h2">Сравнение производительности технологического процесса</p>
+					<div class="economy-process-popup__detail">
+						<p class="line"><span>Коррозионное поражение<br>  поверхности</span><span>В, С (по ISO 8501-1)</span></p>
+						<p class="line"><span>Шероховатость очищенной <br> поверхности</span><span>S<sub>a</sub> = 2,5 (по ISO 8503-2)</span></p>
+						<p class="line"><span>Длина абразивного тракта</span><span>20 м</span></p>
+					</div>
+					<p>За счет увеличенного объема загрузки происходит увеличение производительности ПГА-300, что продлевает срок службы комплектующих. А увеличение рабочего давления аппарата сокращается расход абразивного материала.</p>
+				</div>
+			</div>
+			</div>
+  	</div>
+  </div>
+</body>
+</html>
+
+
+
